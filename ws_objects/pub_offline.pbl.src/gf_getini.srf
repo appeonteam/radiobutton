@@ -1,0 +1,17 @@
+﻿$PBExportHeader$gf_getini.srf
+global type gf_getini from function_object
+end type
+
+forward prototypes
+global function integer gf_getini ()
+end prototypes
+
+global function integer gf_getini ();
+
+int li_return
+
+li_return = profileint('offline.ini','Type','offline',1)
+
+return li_return
+end function
+

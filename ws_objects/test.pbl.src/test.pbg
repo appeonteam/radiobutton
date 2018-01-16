@@ -1,0 +1,12 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "test.pbl" "";
+@end;
+@begin Objects 
+ "test.sra" "test.pbl";
+ "dg.srw" "test.pbl";
+ "fh.srw" "test.pbl";
+ "sfg.srw" "test.pbl";
+ "tutyj.srw" "test.pbl";
+ "w_1.srw" "test.pbl";
+@end;

@@ -1,0 +1,142 @@
+﻿$PBExportHeader$gf_onoffline.srf
+global type gf_onoffline from function_object
+end type
+
+forward prototypes
+global subroutine gf_onoffline (transaction atr_tran[], string as_dbtype[])
+end prototypes
+
+global subroutine gf_onoffline (transaction atr_tran[], string as_dbtype[]);//
+// as_local 为 sqlite,ultralite,online
+//
+//
+environment le_env
+long ll_pbversion,ll_uppbound,ll_count
+string ls_return
+string ls_dbtype
+transaction ltr_tran
+open(w_offline)
+//
+ll_uppbound = upperbound(atr_tran)
+if ll_uppbound = 0 then return
+getenvironment(le_env)
+ll_pbversion = le_env.pbmajorrevision
+ls_return = message.stringparm
+//取消时不做任何处理
+if ls_return = 'cancel' then return
+
+
+
+for ll_count = 1 to ll_uppbound
+	ltr_tran = atr_tran[ll_count]
+	ls_dbtype = as_dbtype[ll_count]
+	if isvalid(ltr_tran) then
+		disconnect using ltr_tran;
+	else
+		ltr_tran = create transaction
+	end if
+	//处理事务
+	If ls_return = 'online' then
+//		choose case lower(ls_dbtype)
+//			case 'ora'
+//				if ll_pbversion <= 8 then
+//					ltr_tran.DBMS = "O84 Oracle8/8i (8.x.4+)"
+//				else
+//					ltr_tran.DBMS = "O90 Oracle9i (9.0.1)"
+//				end if
+//				ltr_tran.LogPass = "en_ora9i"
+//				ltr_tran.ServerName = "enora9i"
+//				ltr_tran.LogId = "en_ora9i"
+//				ltr_tran.AutoCommit = False
+//				ltr_tran.DBParm = "EnabledLocaldb='false'"
+//			case 'sql'
+//				ltr_tran.DBMS = "OLE DB"
+//				ltr_tran.LogPass = "en_sql2000"
+//				ltr_tran.LogId = "en_sql2000"
+//				ltr_tran.AutoCommit = False
+//				ltr_tran.DBParm = "PROVIDER='SQLOLEDB',DATASOURCE='192.0.0.40',PROVIDERSTRING='database=en_sql2000';EnabledLocaldb='false'"
+//			case 'sql2'
+//				ltr_tran.DBMS = "OLE DB"
+//				ltr_tran.LogPass = "admin"
+//				ltr_tran.LogId = "sa"
+//				ltr_tran.AutoCommit = False
+//				ltr_tran.DBParm = "PROVIDER='SQLOLEDB',DATASOURCE='192.0.2.254',PROVIDERSTRING='database=apbtestcase';EnabledLocaldb='false'"
+//			case 'asa'
+//				ltr_tran.autocommit = false
+//				ltr_tran.dbms = 'ODBC'
+//				ltr_tran.dbparm = "connectstring='DSN=en_asa80;UID=dba;PWD=sql';EnabledLocaldb='false'"
+//			case 'ase'
+//				ltr_tran.DBMS = "ASE Adaptive Server Enterprise"
+//				ltr_tran.Database = "en_ase1253"
+//				ltr_tran.LogPass = "en_ase1253"
+//				ltr_tran.ServerName = "en_ase1253"
+//				ltr_tran.LogId = "en_ase1253"
+//				ltr_tran.AutoCommit = False
+//				ltr_tran.DBParm = "EnabledLocaldb='false'"
+//			case else
+//				messagebox('',ls_dbtype+':Not complete now')
+//				return
+//		end choose
+	elseif ls_return = 'sqlite' then
+//		choose case ls_dbtype
+//			case 'ora'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.AutoCommit = False
+//				ltr_tran.DBParm = "ConnectString='DSN=sqlite_ora;UID=;PWD=';EnabledLocaldb='true'"
+//			case 'sql'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.AutoCommit = False
+//				ltr_tran.DBParm = "ConnectString='DSN=ensql2000sqlite;UID=;PWD=';EnabledLocaldb='true'"
+//			case 'sql2'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.AutoCommit = False
+//				ltr_tran.DBParm = "ConnectString='DSN=sqlite_frame;UID=;PWD=';EnabledLocaldb='true'"
+//			case 'asa'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.AutoCommit = False
+//				ltr_tran.DBParm = "ConnectString='DSN=sqlite_asa80;UID=;PWD=';EnabledLocaldb='true'"
+//			case 'ase'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.AutoCommit = False
+//				ltr_tran.DBParm = "ConnectString='DSN=sqlite_ase1253;UID=;PWD=';EnabledLocaldb='true'"
+//			CASE ELSE
+//				messagebox('',ls_dbtype+':Not complete now')
+//				return
+//		END CHOOSE
+		
+	else
+//		choose case ls_dbtype
+//			case 'ora'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.Autocommit = False
+//				ltr_tran.dbparm = "ConnectString='DBF=D:\Mobilink\database\en_ora9i.udb;driver={ultralite 12};UID=dba;PWD=sql';EnabledLocaldb='true';cachename = 'ul_ora'"
+//			case 'sql'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.Autocommit = False
+//				ltr_tran.dbparm = "ConnectString='DBF=D:\Mobilink\database\en_sql2000.udb;driver={ultralite 12};UID=dba;PWD=sql';EnabledLocaldb='true';cachename = 'ul_sql'"
+//			case 'sql2'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.Autocommit = False
+//				ltr_tran.dbparm = "ConnectString='DBF=D:\Mobilink\database\gtr_frame.udb;driver={ultralite 12};UID=dba;PWD=sql';EnabledLocaldb='true';cachename = 'ul_sql2'"
+//			case 'asa'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.Autocommit = False
+//				ltr_tran.dbparm = "ConnectString='DBF=D:\Mobilink\database\en_asa80.udb;driver={ultralite 12};UID=dba;PWD=sql';EnabledLocaldb='true';cachename = 'ul_asa'"
+//			case 'ase'
+//				ltr_tran.DBMS = "ODBC"
+//				ltr_tran.Autocommit = False
+//				ltr_tran.dbparm = "ConnectString='DBF=D:\Mobilink\database\en_ase1253.udb;driver={ultralite 12};UID=dba;PWD=sql';EnabledLocaldb='true';cachename = 'ul_ase'"
+//			CASE ELSE
+//				messagebox('',ls_dbtype+':Not complete now')
+//				return
+//		END CHOOSE
+	end if
+	
+//	connect using ltr_tran;
+//	if ltr_tran.sqlcode <>0 then
+//		messagebox('Information','Connect to DataBase failed: '+ltr_tran.sqlerrtext)
+//		return
+//	end if
+next
+end subroutine
+

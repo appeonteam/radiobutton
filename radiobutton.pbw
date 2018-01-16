@@ -1,0 +1,14 @@
+Save Format v3.0(19990112)
+@begin Unchecked
+@end;
+@begin Targets
+ 0 "v30f160a09_pst_column.pbt";
+ 1 "D:\\bug\\34692\\test.pbt";
+ 2 "D:\\bug\\orderentry\\STD_FC_OrderEntry_v2017R1_PB12.6.0_Classic_B4108_2017-05-17\\OES_Appeon.pbt";
+ 3 "D:\\bug\\34713\\scroll2\\scrollgenapp.pbt";
+ 4 "test.pbt";
+ 5 "D:\\bug\\34292\\dddw\\test.pbt";
+ 6 "D:\\bug\\2012\\29212\\pbl_origin\\sybase_test_dddw.pbt";
+@end;
+DefaultTarget "D:\\bug\\34292\\dddw\\test.pbt";
+DefaultRemoteTarget "D:\\bug\\34292\\dddw\\test.pbt";

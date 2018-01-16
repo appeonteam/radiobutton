@@ -1,0 +1,79 @@
+﻿$PBExportHeader$gf_dataobject2.srf
+global type gf_dataobject2 from function_object
+end type
+
+forward prototypes
+global subroutine gf_dataobject (datawindow adw, datastore ads)
+global subroutine gf_dataobject2 (datawindow adw)
+global subroutine gf_dataobject2 (datastore ads)
+end prototypes
+
+global subroutine gf_dataobject (datawindow adw, datastore ads);int li_type
+
+li_type = profileint('offline.ini','Type','offline',1)
+
+if li_type = 2 then
+	if isvalid(adw) then
+		adw.dataobject = 'd_testpoint_sqlite'
+	elseif isvalid(ads) then
+		ads.dataobject= 'd_testpoint_sqlite'
+	end if
+end if
+
+if li_type = 3 then
+	if isvalid(adw) then
+		adw.dataobject = 'd_testpoint_ultralite'
+	elseif isvalid(ads) then
+		ads.dataobject= 'd_testpoint_ultralite'
+	end if
+end if
+
+
+end subroutine
+
+global subroutine gf_dataobject2 (datawindow adw);int li_type
+
+li_type = profileint('offline.ini','Type','offline',1)
+
+if li_type = 2 then
+//	if isvalid(adw) then
+	adw.dataobject = 'd_testpoint_sqlite'
+//	elseif isvalid(ads) then
+//		ads.dataobject= 'd_testpoint_sqlite'
+//	end if
+end if
+
+if li_type = 3 then
+//	if isvalid(adw) then
+	adw.dataobject = 'd_testpoint_ultralite'
+//	elseif isvalid(ads) then
+//		ads.dataobject= 'd_testpoint_ultralite'
+//	end if
+end if
+
+
+end subroutine
+
+global subroutine gf_dataobject2 (datastore ads);int li_type
+
+li_type = profileint('offline.ini','Type','offline',1)
+
+if li_type = 2 then
+//	if isvalid(adw) then
+	ads.dataobject = 'd_testpoint_sqlite'
+//	elseif isvalid(ads) then
+//		ads.dataobject= 'd_testpoint_sqlite'
+//	end if
+end if
+
+if li_type = 3 then
+//	if isvalid(adw) then
+	ads.dataobject = 'd_testpoint_ultralite'
+//	elseif isvalid(ads) then
+//		ads.dataobject= 'd_testpoint_ultralite'
+//	end if
+end if
+
+
+end subroutine
+

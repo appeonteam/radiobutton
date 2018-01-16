@@ -1,0 +1,13 @@
+﻿$PBExportHeader$gf_init.srf
+global type gf_init from function_object
+end type
+
+forward prototypes
+global subroutine gf_init ()
+end prototypes
+
+global subroutine gf_init ();//初始化配置文件
+
+setprofilestring('offline.ini','Type','offline','1')
+end subroutine
+

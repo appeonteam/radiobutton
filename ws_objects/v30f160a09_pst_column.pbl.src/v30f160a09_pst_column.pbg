@@ -1,0 +1,11 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "v30f160a09_pst_column.pbl" "";
+@end;
+@begin Objects 
+ "v30f160a09_pst_column.sra" "v30f160a09_pst_column.pbl";
+ "m_main.srm" "v30f160a09_pst_column.pbl";
+ "n_cst_config.sru" "v30f160a09_pst_column.pbl";
+ "w_mdi.srw" "v30f160a09_pst_column.pbl";
+ "w_viewsyntax.srw" "v30f160a09_pst_column.pbl";
+@end;
